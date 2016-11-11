@@ -1,0 +1,12 @@
+weapon :The Axe of Destiny 20
+weapon :Shotgun 30
+weapon :Big Fat Bomb 40
+spell :Fireball 30 50 2
+spell :Inferno 40 50 3
+spell :Thunderstorm 40 50 3
+health :50
+health :20
+health :30
+mana :20
+mana :30
+mana :40
