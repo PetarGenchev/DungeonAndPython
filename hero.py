@@ -12,24 +12,20 @@ class Hero:
 
 	#return the name and title of the character
 	def known_as(self): 
-		return self.name + " the " + self.title
+		return '{} the {}'.format(self.name, self.title)
 
 	#return the current health points of the character
-	def get_health(self,current_health):
-
-		current_health += self.health - damage_point
-		return current_health
+	def get_health(self):
+		return self.health
 
 	#return the current mana points of character
-	def get_mana(self,current_mana):
-
-		current_mana += self.mana - mana_cost
-		return	current_mana
+	def get_mana(self):
+		return self.mana
 
 	#return if the character is alive
 	def is_alive(self):
 
-		if current_health <= 0:
+		if self.health <= 0:
 			return False
 		return True
 
@@ -90,7 +86,7 @@ class Hero:
 			return False
 
 	def is_equipted(self):
-		return self.weapon in not None
+		return self.weapon is not None
 
 
 	def is_learned(self):

@@ -10,15 +10,11 @@ class Enemy:
 
 	#return the current health points of the character
 	def get_health(self,current_health):
-
-		current_health += self.health - damage_point
-		return current_health
-
+		return self.health
+		
 	#return the current mana points of character
-	def get_mana(self,current_mana):
-
-		current_mana += self.mana - mana_cost
-		return	current_mana
+	def get_mana(self):
+		return self.mana
 
 	#return if the character is alive
 	def is_alive(self):
@@ -30,7 +26,7 @@ class Enemy:
 	#check if the character got enough mana points to cast spell
 	def can_cast(self):
 
-		if current_mana >= mana_cost:
+		if self.mana >= mana_cost:
 			return True
 		return False	
 
