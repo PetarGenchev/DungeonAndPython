@@ -1,4 +1,3 @@
-from random import randint
 from weapon import Weapon
 from spell import Spell
 
@@ -33,9 +32,9 @@ class Enemy:
 
 		if current_mana >= mana_cost:
 			return True
-		return False
+		return False	
 
-	#the amount of the damage that our character takes
+	#the amount of the damage that our character takes 
 	def take_damage(self,damage):
 
 		if self.health < damage:
@@ -44,37 +43,38 @@ class Enemy:
 			self.health -= damage
 
 	#check if our character can be healed
-	def take_healing(self,healing_point):
+	def take_healing(self,healing_point): 
 
 		if current_health <= 0 and (current_health + healing_point) > self.health:
-			return False
+			return False 
 		return True,current_health + healing_point
 
 	#check if our character can regen mana
 	def take_mana(self, mana_point):
-
+	
 		while self.mana > 0:
 			if (current_mana + mana_point) < self.mana:
-				return True
+				return True 
 			return False
 
 
-	def equip(weapon):
-		pass
+	def equip(self, weapon):
+		
+		self.weapon = weapon
+	
+	def learn(self, spell):
+		
+		self.spell = spell	
+		
+	def attack(self, by='None'):
+		
+		if by == 'weapon':
+			return self.damage + self.weapon.get_damage()
+		if by == 'spell':
+			if self.mana < self.spell.get_mana_cost()
+				return False
+			else:
+				self.mane -= self.spell.get_mana_cost()
+				return self.damage + self.spell.get_damage()
 
-	def learn(spell):
-		pass
 
-	def  attack(self, attacks):
-		pass
-		#if attacks == 'weapon':
-		#	return self.damage + weapon_damage
-		#elif attacks == 'magic':
-		#	return self.damage + spell_dmg
-
-	@classmethod
-	def create_random_enemy(cls):
-		health = randint(70, 100)
-		mana = randint(50, 100)
-		damage = randint(10, 30)
-		return Enemy(health, mana, damage)
