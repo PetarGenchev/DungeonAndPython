@@ -51,7 +51,7 @@ class Dungeon:
             self.collector.treasures[(x, y)].apply_on_hero(self.hero)
         elif symbol == 'E':
             Fight(self.hero, self.collector.enemies[(x, y)]).start_fight()
-
+git
         if self._is_game_over():
             print("Game over!")
             sys.exit(0)
