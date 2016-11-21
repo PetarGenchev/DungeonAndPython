@@ -67,7 +67,7 @@ class Hero:
 			self.current_mana = self.mana
 
 	#for every step incrase the current mana with the mana regen given
-	def regen_mana_after_move(self):
+	def regan_mana_after_move(self):
 		self.current_mana += self.mana_regeneration_rate
 
 
@@ -82,11 +82,11 @@ class Hero:
 	def attack(self, by='None'):
 
 		if by == 'weapon':
-			return self.damage + self.weapon.get_damage()
+			return self.weapon.get_damage()
 		if by == 'spell':
-			if self.mana >= self.spell.get_mana_cost():
-				self.mane -= self.spell.get_mana_cost()
-				return self.damage + self.spell.get_damage()
+			if self.current_mana >= self.spell.get_mana_cost():
+				self.current_mana -= self.spell.get_mana_cost()
+				return self.spell.get_damage()
 			return False
 
 	def is_equipted(self):

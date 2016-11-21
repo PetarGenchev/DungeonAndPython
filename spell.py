@@ -11,7 +11,7 @@ class Spell(Treasure):
         self.cast_range = cast_range
 
     def __str__(self):
-        return "{0} {1} {2} {3}".format(self.name, self.damage, self.mana_cost, self.cast_range)
+        return self.name
 
     def __repr__(self):
         return self.__str__()

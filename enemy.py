@@ -1,3 +1,4 @@
+from random import randint
 from weapon import Weapon
 from spell import Spell
 
@@ -20,6 +21,9 @@ class Enemy:
 	def get_mana(self):
 		return self.current_mana
 
+	def get_damage(self):
+		return self.damage
+
 	#return if the character is alive
 	def is_alive(self):
 
@@ -36,7 +40,6 @@ class Enemy:
 
 	#the amount of the damage that our character takes
 	def take_damage(self,damage):
-
 		if self.current_health < damage:
 			self.current_health = 0
 		else:
@@ -78,3 +81,10 @@ class Enemy:
 			else:
 				self.mane -= self.spell.get_mana_cost()
 				return self.damage + self.spell.get_damage()
+
+	@classmethod
+	def create_random_enemy(cls):
+		health = randint(70, 100)
+		mana = randint(50, 100)
+		damage = randint(10, 30)
+		return Enemy(health, mana, damage)

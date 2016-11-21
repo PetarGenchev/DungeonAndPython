@@ -1,6 +1,9 @@
 import sys
 from hero import Hero
+from spell import Spell
+from weapon import Weapon
 from collector import Collector
+from fight import Fight
 from point import get_neighbor, point_is_passable
 
 levels = ["level_1.txt", "level_2.txt"]
@@ -45,14 +48,15 @@ class Dungeon:
     def _move_into(self, x, y):
         symbol = self.map[x][y]
         if symbol == 'T':
-            self.treasures[(x, y)].apply_on_hero(self.hero)
-        # elif symbol == 'E':
-        #     Fight(self.hero, self.enemies[(x, y)])
+            self.collector.treasures[(x, y)].apply_on_hero(self.hero)
+        elif symbol == 'E':
+            Fight(self.hero, self.collector.enemies[(x, y)]).start_fight()
+
         if self._is_game_over():
             print("Game over!")
             sys.exit(0)
-        # elif symbol == 'G':
-        #   self._go_on_next_level()
+        elif symbol == 'G':
+            self._go_on_next_level()
 
     def _move_hero_in_map(self, x, y):
         if self.hero_x >= 0 and self.hero_y >= 0:
