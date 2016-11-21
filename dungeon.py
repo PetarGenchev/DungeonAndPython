@@ -1,5 +1,5 @@
 import sys
-# from hero import Hero
+from hero import Hero
 from collector import Collector
 from point import get_neighbor, point_is_passable
 

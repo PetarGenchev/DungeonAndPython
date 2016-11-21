@@ -16,6 +16,9 @@ class Spell(Treasure):
     def __repr__(self):
         return self.__str__()
 
+    def get_damage(self):
+        return self.damage
+
     def get_mana_cost(self):
         return self.mana_cost
 
